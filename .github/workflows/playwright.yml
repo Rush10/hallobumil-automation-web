@@ -1,9 +1,5 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   schedule:
     # Runs every day at 12 AM UTC or 7 AM WIB
     - cron: '0 0 * * *' 
