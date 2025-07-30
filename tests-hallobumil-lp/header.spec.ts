@@ -38,7 +38,6 @@ test.describe('Header', () => {
   test('should allow me to go to list event page when clicked on event button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: 'Info Acara' }).click();
-    await page.getByRole('link').filter({ hasText: /^Komunitas$/ }).click();
     await expect(page).toHaveURL(baseURL + Constant.LIST_EVENT_PAGE);
     await expect(page.getByRole('heading', { name: 'Semua Event' })).toBeVisible();
   });
