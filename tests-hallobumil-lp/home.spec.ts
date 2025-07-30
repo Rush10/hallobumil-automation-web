@@ -8,6 +8,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Home/Main Page', () => {
   
+  //TITLE
   test('should has title', async ({ page }) => {
     await expect(page).toHaveTitle('Hallobumil #MengertiMama - Aplikasi Kehamilan & Parenting Mama');
   });

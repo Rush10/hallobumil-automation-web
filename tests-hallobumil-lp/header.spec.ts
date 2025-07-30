@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import * as Constant from '../hb-lp-utils/constant';
 
 test.describe('Header', () => {
+  //hallobumil icon
   test('should allow me to go to home/main page when clicked on hallobumil icon', async ({ page, baseURL }) => {
     await page.goto(Constant.LIST_ARTICLE_PAGE);
     await page.locator('#header-logo-hb').click();
@@ -9,6 +10,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Hallobumil #MengertiMama' })).toBeVisible();
   });
 
+  //home/main button (navbar)
   test('should allow me to go to home/main page when clicked on home button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.COMMUNITY_PAGE);
     await page.getByRole('link').filter({ hasText: 'Beranda' }).click();
@@ -16,6 +18,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Hallobumil #MengertiMama' })).toBeVisible();
   });
 
+  //article button (navbar)
   test('should allow me to go to list article page when clicked on article button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: /^Artikel$/ }).click();
@@ -23,6 +26,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Kumpulan Artikel Hallobumil' })).toBeVisible();
   });
 
+  //community button (navbar)
   test('should allow me to go to community page when clicked on community button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: /^Komunitas$/ }).click();
@@ -30,6 +34,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Tentang Komunitas Hallobumil' })).toBeVisible();
   });
 
+  //event button (navbar)
   test('should allow me to go to list event page when clicked on event button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: 'Info Acara' }).click();
@@ -38,6 +43,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Semua Event' })).toBeVisible();
   });
 
+  //calculator button (navbar)
   test('should allow me to go to fertility calendar page when clicked on fertility calendar button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: 'Hitung Masa Subur' }).click();
@@ -45,6 +51,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Perhitungan Masa Subur' })).toBeVisible();
   });
 
+  //hpl button (navbar)
   test('should allow me to go to HPL page when clicked on HPL button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: 'Hitung HPL' }).click();
@@ -52,6 +59,7 @@ test.describe('Header', () => {
     await expect(page.getByRole('heading', { name: 'Hari Perkiraan Lahir' })).toBeVisible();
   });
 
+  //contact us button (navbar) 
   test('should allow me to go to contact us page when clicked on contact us button (navbar)', async ({ page, baseURL }) => {
     await page.goto(Constant.DEFAULT_PAGE);
     await page.getByRole('link').filter({ hasText: 'Hubungi Kami' }).first().click();
