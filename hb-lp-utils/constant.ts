@@ -1,0 +1,9 @@
+export const HB_APP_PLAYSTORE_URL = 'https://play.google.com/store/apps/details?id=crm.iluvubaby&hl=ms&gl=ID';
+export const HB_APP_APPSTORE_URL = 'https://apps.apple.com/id/app/hallobumil/id1507726157';
+export const DEFAULT_PAGE = '/';
+export const LIST_ARTICLE_PAGE = '/artikel';
+export const LIST_EVENT_PAGE = '/event';
+export const COMMUNITY_PAGE = '/komunitas';
+export const FERTILITY_CALENDAR_PAGE = '/kalender-kesuburan';
+export const HPL_PAGE = '/kalender-hpl';
+export const CONTACT_US_PAGE = '/hubungi-kami';
