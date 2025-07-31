@@ -27,9 +27,9 @@ test.describe('Home/Main Page', () => {
   });
 
   test('should allow me to go to hallobumil app on playstore when clicked on playstore icon', async ({ page, browserName }) => {
-    const storePagePromise = page.waitForEvent('popup');
     await page.getByRole('main').locator('#home-play-store').getByRole('img', { name: 'image' }).click();
     
+    const storePagePromise = page.waitForEvent('popup');
     if(browserName == 'webkit'){
       const storePage = await storePagePromise;
       await expect(storePage).toHaveURL(Constant.HB_APP_APPSTORE_URL);
@@ -40,9 +40,9 @@ test.describe('Home/Main Page', () => {
   });
 
   test('should allow me to go to hallobumil app on playstore when clicked on appstore icon', async ({ page, browserName }) => {
-    const storePagePromise = page.waitForEvent('popup');
     await page.getByRole('main').locator('#home-app-store').getByRole('img', { name: 'image' }).click()
     
+    const storePagePromise = page.waitForEvent('popup');
     if(browserName == 'webkit'){
       const storePage = await storePagePromise;
       await expect(storePage).toHaveURL(Constant.HB_APP_APPSTORE_URL);
@@ -89,8 +89,9 @@ test.describe('Home/Main Page', () => {
   });
 
   test('should allow me to go to promo link when clicked on a promo', async ({ page }) => {
-    const prenagenPagePromise = page.waitForEvent('popup');
     await page.getByRole('link', { name: 'Prenagen' }).click(); //!!!
+
+    const prenagenPagePromise = page.waitForEvent('popup');
     const prenagenPage = await prenagenPagePromise;
     await expect(prenagenPage).toHaveURL('https://www.prenagen.com/id');
     await expect(prenagenPage.getByRole('link', { name: 'Prenagen', exact: true })).toBeVisible();
@@ -146,9 +147,9 @@ test.describe('Home/Main Page', () => {
   });
 
   test('should allow me to go to hallobumil app on playstore when clicked on download button', async ({ page, browserName }) => {
-    const storePagePromise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Download Sekarang' }).click();
     
+    const storePagePromise = page.waitForEvent('popup');
     if(browserName == 'webkit'){
       const storePage = await storePagePromise;
       await expect(storePage).toHaveURL(Constant.HB_APP_APPSTORE_URL);
