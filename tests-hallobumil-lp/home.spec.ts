@@ -75,10 +75,10 @@ test.describe('Home/Main Page', () => {
     await expect(page.getByRole('link', { name: 'Lihat Semua Artikel' })).toBeVisible();
   });
 
-  test('should allow me to go to list article page when clicked on see all article button', async ({ page, baseURL }) => {
+  test('should allow me to go to list article page when clicked on see all article button', async ({ page }) => {
     await page.getByRole('link', { name: 'Lihat Semua Artikel' }).click()
     
-    await expect(page).toHaveURL(baseURL + Constant.LIST_ARTICLE_PAGE);
+    await expect(page).toHaveURL(Constant.LIST_ARTICLE_PAGE);
     await expect(page.getByRole('heading', { name: 'Kumpulan Artikel Hallobumil' })).toBeVisible();
   });
 
@@ -104,10 +104,10 @@ test.describe('Home/Main Page', () => {
     await expect(page.getByRole('link', { name: 'Lihat Semua Event' })).toBeVisible();
   });
 
-  test('should allow me to go to list event page when clicked on see all event button', async ({ page, baseURL }) => {
+  test('should allow me to go to list event page when clicked on see all event button', async ({ page }) => {
     await page.getByRole('link', { name: 'Lihat Semua Event' }).click();
     
-    await expect(page).toHaveURL(baseURL + Constant.LIST_EVENT_PAGE);
+    await expect(page).toHaveURL(Constant.LIST_EVENT_PAGE);
     await expect(page.getByRole('heading', { name: 'Semua Event' })).toBeVisible();
   });
 
@@ -118,10 +118,10 @@ test.describe('Home/Main Page', () => {
     await expect(page.getByRole('img', { name: 'komunitas-section' })).toBeVisible();
   });
 
-  test('should allow me to go to community page when clicked on see community button', async ({ page, baseURL }) => {
+  test('should allow me to go to community page when clicked on see community button', async ({ page }) => {
     await page.getByRole('button', { name: 'Lihat Komunitas' }).click();
     
-    await expect(page).toHaveURL(baseURL + Constant.COMMUNITY_PAGE);
+    await expect(page).toHaveURL(Constant.COMMUNITY_PAGE);
     await expect(page.getByRole('heading', { name: 'Tentang Komunitas Hallobumil' })).toBeVisible();
   });
 
