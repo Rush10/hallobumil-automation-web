@@ -7,3 +7,13 @@ export const COMMUNITY_PAGE = '/komunitas';
 export const FERTILITY_CALENDAR_PAGE = '/kalender-kesuburan';
 export const HPL_PAGE = '/kalender-hpl';
 export const CONTACT_US_PAGE = '/hubungi-kami';
+export const TAC_CONSENT_PAGE = '/syarat-dan-ketentuan-hb';
+export const PRIVACY_POLICY_CONSENT_PAGE = '/kebijakan-privasi-hb';
+export const COOKIE_CONSENT_PAGE = '/cookies-consent-hb';
+export const USER_AGREEMENT_CONSENT_PAGE = '/persetujuan-pelanggan-hb';
+export const CHILD_USER_AGREEMENT_CONSENT_PAGE = '/persetujuan-pelanggan-anak-hb';
+export const HB_FB_PAGE = 'https://www.facebook.com/Hallobumil/';
+export const HB_TIKTOK_PAGE = 'https://www.tiktok.com/@hallobumil_id';
+export const HB_YT_PAGE = 'https://www.youtube.com/c/hallobumil';
+export const HB_IG_PAGE = 'https://www.instagram.com/hallobumil_id';
+
