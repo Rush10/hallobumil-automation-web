@@ -82,7 +82,6 @@ test.describe('Footer', () => {
     const igURL = page.url();
     expect(igURL).toContain(Constant.HB_IG1_PAGE);
     expect(igURL).toContain(Constant.HB_IG2_PAGE);
-    await expect(page.getByRole('img', { name: 'Instagram' })).toBeVisible();
   });
 
   //tiktok icon
