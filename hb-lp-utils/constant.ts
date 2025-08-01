@@ -15,5 +15,6 @@ export const CHILD_USER_AGREEMENT_CONSENT_PAGE = '/persetujuan-pelanggan-anak-hb
 export const HB_FB_PAGE = 'https://www.facebook.com/Hallobumil/';
 export const HB_TIKTOK_PAGE = 'https://www.tiktok.com/@hallobumil_id';
 export const HB_YT_PAGE = 'https://www.youtube.com/c/hallobumil';
-export const HB_IG_PAGE = 'https://www.instagram.com/hallobumil_id';
+export const HB_IG1_PAGE = 'https://www.instagram.com';
+export const HB_IG2_PAGE = 'hallobumil_id';
 
