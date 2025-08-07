@@ -25,4 +25,5 @@ export const HB_TIKTOK_PAGE = 'https://www.tiktok.com/@hallobumil_id';
 export const HB_YT_PAGE = 'https://www.youtube.com/c/hallobumil';
 export const HB_IG1_PAGE = 'https://www.instagram.com';
 export const HB_IG2_PAGE = 'hallobumil_id';
+export const HB_WA_CHAT_PAGE = 'https://chat.whatsapp.com';
 

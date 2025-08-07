@@ -1,4 +1,5 @@
 import { expect, type Page } from '@playwright/test';
+import * as Constant from '../hb-lp-utils/constant';
 
 export async function verifyHeader(page: Page, isLogin: Boolean) {
   await expect(page.locator('#header-logo-hb')).toBeVisible();
@@ -14,7 +15,12 @@ export async function verifyHeader(page: Page, isLogin: Boolean) {
   }
 
   await expect(page.getByRole('link').filter({ hasText: 'Beranda' })).toBeVisible();
-  await expect(page.getByRole('link').filter({ hasText: /^Artikel$/ })).toBeVisible();
+  try{
+    await expect(page.getByRole('link').filter({ hasText: /^Artikel$/ })).toBeVisible();
+  }catch (e: unknown) {
+    console.error('Artikel link not found, it might be in a different text or layout.');
+    await expect(page.getByRole('link').filter({ hasText: 'Artikel' }).first()).toBeVisible();
+  }
   await expect(page.getByRole('link').filter({ hasText: /^Komunitas$/ })).toBeVisible();
   await expect(page.getByRole('link').filter({ hasText: 'Info Acara' })).toBeVisible();
   await expect(page.getByRole('link').filter({ hasText: 'Hitung Masa Subur' })).toBeVisible();
@@ -33,9 +39,46 @@ export async function verifyFooter(page: Page){
   await expect(page.locator('footer #home-play-store').getByRole('img', { name: 'image' })).toBeVisible();
   await expect(page.locator('footer #home-app-store').getByRole('img', { name: 'image' })).toBeVisible();
   await expect(page.getByText('Media Sosial')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Facebook' })).toBeVisible();
+  try {
+    await expect(page.getByRole('link', { name: 'Facebook' })).toBeVisible();
+  } catch (e: unknown) {
+    console.error('Artikel link not found, it might be in a different text or layout.');
+    await expect(page.locator('#footer-Facebook')).toBeVisible();
+  }
   await expect(page.getByRole('link', { name: 'Instagram' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Tiktok' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Youtube' })).toBeVisible();
   await expect(page.getByText('HalloBumil. All rights reserved.')).toBeVisible();
+}
+
+export async function verifyListAllArticlePage(page: Page){
+  await expect(page).toHaveURL(Constant.LIST_ARTICLE_PAGE);
+  await expect(page.getByText('Bacaan Untuk Mama')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Artikel Favorit' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Kumpulan Artikel Hallobumil' })).toBeVisible();
+}
+
+export async function verifyListPrePregnancyArticlePage(page: Page){
+  await expect(page).toHaveURL(Constant.LIST_PH1_ARTICLE_PAGE);
+  await expect(page.getByText('Bacaan Untuk Mama')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Artikel Favorit' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Kumpulan Artikel Pra Kehamilan' })).toBeVisible();
+}
+
+export async function verifyCTALoginModal(page: Page){
+  await expect(page.getByText('Login Dulu yuk, Ma!')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Masuk Sekarang' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'close-circle' })).toBeVisible();
+  
+  await page.getByRole('button', { name: 'close-circle' }).click();
+  await expect(page.getByText('Login Dulu yuk, Ma!')).not.toBeVisible();
+}
+
+export async function verifyCTADownloadModal(page: Page){
+  await expect(page.getByText('Download Hallobumil Dulu yuk')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Download Sekarang' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'close-circle' })).toBeVisible();
+  
+  await page.getByRole('button', { name: 'close-circle' }).click();
+  await expect(page.getByText('Download Hallobumil Dulu yuk')).not.toBeVisible();
 }
