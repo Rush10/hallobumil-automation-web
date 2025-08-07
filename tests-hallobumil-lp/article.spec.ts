@@ -170,11 +170,15 @@ test.describe('Detail Pre-Pregnancy Article Page', () => {
     await expect(sharePage).toHaveURL('https://www.facebook.com/sharer/sharer.php?u=https://stg.hallobumil.com/pra-kehamilan/test-pre-pregnancy-article');
   });
 
-  test('should allow me to share the article to twitter when clicked on twitter icon button #1', async ({ page }) => {
+  test('should allow me to share the article to twitter when clicked on twitter icon button #1', async ({ page, browserName }) => {
     await page.locator('div').filter({ hasText: /^Pra KehamilanBagikan$/ }).locator('#detail-artikel-Twitter').click();
     const sharePagePromise = page.waitForEvent('popup');
     const sharePage = await sharePagePromise;
-    await expect(sharePage).toHaveURL('https://x.com/intent/post?url=https%3A%2F%2Fstg.hallobumil.com%2Fpra-kehamilan%2Ftest-pre-pregnancy-article');
+    if(browserName == 'webkit'){
+      await expect(sharePage).toHaveURL('https://x.com/intent/tweet?url=https://stg.hallobumil.com/pra-kehamilan/test-pre-pregnancy-article');
+    }else{
+      await expect(sharePage).toHaveURL('https://x.com/intent/post?url=https%3A%2F%2Fstg.hallobumil.com%2Fpra-kehamilan%2Ftest-pre-pregnancy-article');
+    }
   }); 
 
   test('should allow me to share the article to whatsapp when clicked on whatsapp icon button #1', async ({ page }) => {
@@ -285,11 +289,15 @@ test.describe('Detail Pre-Pregnancy Article Page', () => {
     await expect(sharePage).toHaveURL('https://www.facebook.com/sharer/sharer.php?u=https://stg.hallobumil.com/pra-kehamilan/test-pre-pregnancy-article');
   });
 
-  test('should allow me to share the article to twitter when clicked on twitter icon button #2', async ({ page }) => {
+  test('should allow me to share the article to twitter when clicked on twitter icon button #2', async ({ page, browserName }) => {
     await page.getByRole('link', { name: 'Twitter' }).nth(1).click();
     const sharePagePromise = page.waitForEvent('popup');
     const sharePage = await sharePagePromise;
-    await expect(sharePage).toHaveURL('https://x.com/intent/post?url=https%3A%2F%2Fstg.hallobumil.com%2Fpra-kehamilan%2Ftest-pre-pregnancy-article');
+    if(browserName == 'webkit'){
+      await expect(sharePage).toHaveURL('https://x.com/intent/tweet?url=https://stg.hallobumil.com/pra-kehamilan/test-pre-pregnancy-article');
+    }else{
+      await expect(sharePage).toHaveURL('https://x.com/intent/post?url=https%3A%2F%2Fstg.hallobumil.com%2Fpra-kehamilan%2Ftest-pre-pregnancy-article');
+    }
   }); 
 
   test('should allow me to share the article to whatsapp when clicked on whatsapp icon button #2', async ({ page }) => {
