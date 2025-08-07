@@ -6,6 +6,10 @@ test.beforeEach(async ({ page }) => {
   await page.goto(Constant.DEFAULT_PAGE);
 });
 
+test.afterEach(async ({ page }) => {
+  await page.close();
+});
+
 test.describe('Home/Main Page', () => {
   
   //TITLE

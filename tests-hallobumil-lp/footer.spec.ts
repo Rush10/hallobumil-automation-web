@@ -5,6 +5,10 @@ test.beforeEach(async ({ page }) => {
   await page.goto(Constant.DEFAULT_PAGE);
 });
 
+test.afterEach(async ({ page }) => {
+  await page.close();
+});
+
 test.describe('Footer', () => {
   //term & condition (tac) button
   test('should allow me to go to TAC page when clicked on TAC button', async ({ page }) => {

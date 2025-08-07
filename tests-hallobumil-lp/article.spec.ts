@@ -2,6 +2,10 @@ import { test, expect, type Page } from '@playwright/test';
 import * as Utils from '../hb-lp-utils/utils';
 import * as Constant from '../hb-lp-utils/constant';
 
+test.afterEach(async ({ page }) => {
+  await page.close();
+});
+
 test.describe('List Article Page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(Constant.LIST_ARTICLE_PAGE);
@@ -336,8 +340,4 @@ test.describe('Detail Pre-Pregnancy Article Page', () => {
     await Utils.verifyFooter(page);
   });
 });
-
-// test.afterEach(async ({ page }) => {
-//   await page.close();
-// });
 

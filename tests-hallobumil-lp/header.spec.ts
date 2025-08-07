@@ -1,6 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
 import * as Constant from '../hb-lp-utils/constant';
 
+test.afterEach(async ({ page }) => {
+  await page.close();
+});
+
 test.describe('Header', () => {
   //hallobumil icon
   test('should allow me to go to home/main page when clicked on hallobumil icon', async ({ page }) => {

@@ -5,6 +5,10 @@ test.beforeEach(async ({ page }) => {
   await page.goto(Constant.DEFAULT_PAGE);
 });
 
+test.afterEach(async ({ page }) => {
+  await page.close();
+});
+
 test.describe('Search Article', () => {
   test('should found the article', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Cari...' }).click();
