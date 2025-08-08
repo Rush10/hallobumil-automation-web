@@ -1,8 +1,8 @@
 name: Playwright Tests
 on:
   schedule:
-    # Runs every day at 5:30 AM UTC
-    - cron: '30 5 * * *' 
+    # Runs every day at 09:00 PM UTC
+    - cron: '00 21 * * *' 
 jobs:
   test:
     timeout-minutes: 60
@@ -17,7 +17,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test tests-hallobumil-lp/home.spec.ts
+      run: npx playwright test tests-hallobumil-lp/search.spec.ts
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
