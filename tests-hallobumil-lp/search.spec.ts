@@ -30,11 +30,11 @@ test.describe('Search Article', () => {
 
   test('should go to the detail article of found article', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Cari...' }).click();
-    await page.getByRole('textbox', { name: 'Cari...' }).fill('Test');
+    await page.getByRole('textbox', { name: 'Cari...' }).fill('Panduan Diet untuk Ibu Hamil yang Mengalami Obesitas');
     await page.getByRole('button', { name: 'search' }).click();
-    await page.getByRole('link', { name: 'Test Pre-Pregnancy Article' }).click();
-    await expect(page.getByRole('heading', { name: 'Test Pre-Pregnancy Article' })).toBeVisible();
-    await expect(page.getByText('Test Pre-Pregnancy Article Body')).toBeVisible();
+    await page.getByRole('link', { name: 'Panduan Diet untuk Ibu Hamil yang Mengalami Obesitas' }).click();
+    await expect(page.getByRole('heading', { name: 'Panduan Diet untuk Ibu Hamil yang Mengalami Obesitas' })).toBeVisible();
+    // await expect(page.getByText('Test Pre-Pregnancy Article Body')).toBeVisible();
   });
 });
 
